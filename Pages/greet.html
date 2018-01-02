@@ -1,0 +1,21 @@
+?POST_nombre
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    #if POST_nombre != ""{
+    $<title>Hola #(POST_nombre)#</title>
+    #}else{
+    <title>No Hola</title>
+    #}
+</head>
+<body>
+    #if POST_nombre != ""{
+    $<h1>Hola #(POST_nombre)#</h1>
+    #}else{
+    <h1>No hay nadie ha quien saludar</h1>
+    #}
+</body>
+</html>

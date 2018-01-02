@@ -1,0 +1,16 @@
+{
+    "Project":"GoCloudTest",
+    "Path":"C:\\Users\\rayoe\\Proyectos\\Codigos\\Go\\Packages\\GoCloudFramework",
+    "Saveruntimes":false,
+    "Database":{
+        "Name":"golang",
+        "User":"root",
+        "Password":""
+    },
+    "Error404":{"Page":"404.html"},
+    "Sites":[
+        {"Handler":"","Page":"index.html","Vars":null,"Methods":[],"AlertMethod":false},
+        {"Handler":"users","Page":"users.html","Vars":null,"Methods":[],"AlertMethod":false},
+        {"Handler":"greet","Page":"greet.html","Vars":["nombre"],"Methods":["POST"],"AlertMethod":false}
+    ]
+}

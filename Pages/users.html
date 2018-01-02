@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Mi Pagina web</title>
+</head>
+<body>
+#table := GetDBTable("users")
+#var res [][]string
+#res = table.QueryAll([]string{"nombre","apellido","edad"})
+#for _,put := range res{
+	$<h1>Hola #(put[0])# #(put[1])# tienes #(put[2])# años</h1>
+#}
+</body>
+</html>
