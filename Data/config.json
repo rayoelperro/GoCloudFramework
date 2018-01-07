@@ -11,6 +11,8 @@
     "Sites":[
         {"Handler":"","Page":"index.html","Vars":null,"Methods":[],"AlertMethod":false},
         {"Handler":"users","Page":"users.html","Vars":null,"Methods":[],"AlertMethod":false},
-        {"Handler":"greet","Page":"greet.html","Vars":["nombre"],"Methods":["POST"],"AlertMethod":false}
+        {"Handler":"greet","Page":"greet.html","Vars":["nombre"],"Methods":["POST"],"AlertMethod":false},
+        {"Handler":"newuser","Page":"newuser.html","Vars":null,"Methods":[],"AlertMethod":false},
+        {"Handler":"newusercreate","Page":"newusercreate.html","Vars":["nombre","apellido","edad"],"Methods":["POST"],"AlertMethod":true}
     ]
 }

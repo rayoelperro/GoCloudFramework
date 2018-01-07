@@ -30,13 +30,16 @@ func (d *DataTable) Insert(values []string) {
 	if len(values) > 0 {
 		var q string
 		for i := 0; i < len(values); i++ {
-			q += "'" + values[i] + "',"
+			q += "?,"
 		}
 		q = q[:len(q)-1]
 		stmt, err := d.db.Prepare("INSERT INTO " + d.table + " VALUES(" + q + ")")
 		checkErr(err)
-
-		_, err = stmt.Exec()
+		p := make([]interface{}, len(values))
+		for i := 0; i < len(p); i++ {
+			p[i] = values[i]
+		}
+		_, err = stmt.Exec(p...)
 		checkErr(err)
 	}
 }
