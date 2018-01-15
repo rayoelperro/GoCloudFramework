@@ -57,8 +57,8 @@ GoCloud is developed in Golang to used Golang with HTML, JS and CSS more easier 
 </html>
 ```
 ### Views have a few rules
-#### if the line starts with '?' in case exists a variable called with the name after '?' it will do nothing otherwise it will create a variable with the name after '?' that value will be a string with lenght 0("")
-#### if the line starts with '&' it will search in the folder of name before ':' and import the resource after ':'
-#### if the line starts with '$' it will join the HTML text and the Golang code between #( and )#
-#### if the line starts with '#' it will interpreted as Golang code
-#### by default the text wich doesn't starts with any of this characters will be interpreted as HTML text
+if the line starts with '?' in case exists a variable called with the name after '?' it will do nothing otherwise it will create a variable with the name after '?' that value will be a string with lenght 0("")
+if the line starts with '&' it will search in the folder of name before ':' and import the resource after ':'
+if the line starts with '$' it will join the HTML text and the Golang code between #( and )#
+if the line starts with '#' it will interpreted as Golang code
+by default the text wich doesn't starts with any of this characters will be interpreted as HTML text
