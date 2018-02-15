@@ -24,12 +24,12 @@ GoCloud is developed in Golang to used Golang with HTML, JS and CSS more easier 
 #### Saveruntimes -> It is a boolean that denote if the compiled .go webpages will be saved in runtimes folder
 #### Database -> You must configure this if you want to use a default Data Base
 #### Error404 -> You only need to assign the View that will show the browser in case of error 404(not found)
-#### Sites -> Is an array with 5 parameters
-##### Sites:Handler -> It is the controller of the view that is not necesary to write / symbol
-##### Sites:Page -> It is the view that will showed
-##### Sites:Vars -> It is the variables that the view is allowed to receive
-##### Sites:Methods -> It is the methods that can send variables to the view Example:POST,GET
-##### Sites:AlertMethod -> It is a boolean that denote if the method used will be assigned in a variable like Method := GET
+#### Sites -> Is an array with 5 parameters:
+#####  Sites:Handler -> It is the controller of the view that is not necesary to write '/' symbol
+#####  Sites:Page -> It is the view that will showed
+#####  Sites:Vars -> It is the variables that the view is allowed to receive
+#####  Sites:Methods -> It is the methods that can send variables to the view Example:POST,GET
+#####  Sites:AlertMethod -> It is a boolean that denote if the method used will be assigned in a variable like Method := GET
 
 ## Views
 ```html
