@@ -101,8 +101,10 @@ func initself() {
 func defconfig() string {
 	return "{\n" +
 		"\"Project\":\"Proyect Name\",\n" +
-		"\"Path\":\"Proyect Path. It's very import to fill it, the path need to be the root folder of the proyect, Wrong examples: c:\\\\project\\\\Data, d:\\\\project\\\\Assets, c:\\\\project\\\\pages\",\n" +
-		"\"Saveruntimes\":false(true if you want to see all the .go compiled pages in 'runtimes' folder),\n" +
+		"\"Path\":\"\",\n" +
+		"\"AllowPHP\":false,\n" +
+		"\"PHPPath\":\"\",\n" +
+		"\"Saveruntimes\":false,\n" +
 		"\"Database\":{\n" +
 		"	\"Name\":\"\",\n" +
 		"	\"User\":\"\",\n" +

@@ -2,7 +2,7 @@
     "Project":"GoCloudTest",
     "Path":"C:\\Users\\rayoe\\Proyectos\\Codigos\\Go\\Packages\\GoCloudFramework",
     "AllowPHP":true,
-    "PHPPath":"c:/xampp/php/php.exe",
+    "PHPPath":"c:\\xampp\\php\\php.exe",
     "Saveruntimes":false,
     "Database":{
         "Name":"golang",
