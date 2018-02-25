@@ -6,7 +6,9 @@ GoCloud is developed in Golang to used Golang with HTML, JS and CSS more easier 
 {
     "Project":"",
     "Path":"",
-    "Saveruntimes":,
+    "AllowPHP":false,
+    "PHPPath":"",
+    "Saveruntimes":false,
     "Database":{
         "Name":"",
         "User":"",
@@ -14,13 +16,15 @@ GoCloud is developed in Golang to used Golang with HTML, JS and CSS more easier 
     },
     "Error404":{"Page":""},
     "Sites":[
-        {"Handler":"","Page":"","Vars":[],"Methods":[],"AlertMethod":}
+        {"Handler":"","Page":"","Vars":[],"Methods":[],"AlertMethod":false}
     ]
 }
 ```
 #### Project -> It is the name of the project
 #### Path -> This is very important, you must write your project root folder like 'C:\\Web\\Proyect'.
 #### Wrong Path Confoguration Examples: 'C:\\Web\Proyect\\Assets', 'C:\\Web\\Proyect\\Data' etc...
+#### AllowPHP -> It is a boolean that denote if you will use php code inside your views
+#### PHPPATH -> It is the php copiler path. You must set it right if you allow AllowPHP field
 #### Saveruntimes -> It is a boolean that denote if the compiled .go webpages will be saved in runtimes folder
 #### Database -> You must configure this if you want to use a default Data Base
 #### Error404 -> You only need to assign the View that will show the browser in case of error 404(not found)
