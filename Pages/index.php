@@ -10,6 +10,9 @@
 </head>
 <body>
 	<div class="main">
+		<?php
+			echo "Holaaaaaa!\n";
+		?>
 		<h1 class="title">Escribe un nombre para saludar:</h1>
 		<form action="/greet" method="post" class="topper">
 			<input type="text" name="nombre" id="nombre">
@@ -17,6 +20,8 @@
 		</form>
 		</br>
 		<a href="/newuser">Registrar nuevo usuario</a>
+		</br>
+		&img:welcome.png
 	</div>
 </body>
 </html>

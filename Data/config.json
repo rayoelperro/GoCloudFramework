@@ -1,6 +1,8 @@
 {
     "Project":"GoCloudTest",
     "Path":"C:\\Users\\rayoe\\Proyectos\\Codigos\\Go\\Packages\\GoCloudFramework",
+    "AllowPHP":true,
+    "PHPPath":"c:/xampp/php/php.exe",
     "Saveruntimes":false,
     "Database":{
         "Name":"golang",
@@ -9,7 +11,7 @@
     },
     "Error404":{"Page":"404.html"},
     "Sites":[
-        {"Handler":"","Page":"index.html","Vars":null,"Methods":[],"AlertMethod":false},
+        {"Handler":"","Page":"index.php","Vars":null,"Methods":[],"AlertMethod":false},
         {"Handler":"users","Page":"users.html","Vars":null,"Methods":[],"AlertMethod":false},
         {"Handler":"greet","Page":"greet.html","Vars":["nombre"],"Methods":["POST"],"AlertMethod":false},
         {"Handler":"newuser","Page":"newuser.html","Vars":null,"Methods":[],"AlertMethod":false},

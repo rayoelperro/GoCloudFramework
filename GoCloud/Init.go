@@ -11,6 +11,8 @@ import (
 type Config struct {
 	Project      string
 	Path         string
+	AllowPHP     bool
+	PHPPath      string
 	Saveruntimes bool
 	Database     Database
 	Error404     Site

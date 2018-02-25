@@ -4,26 +4,30 @@ import (
 "./GoCloud"
 )
 func main(){
-POST_nombre := "Arnaldo"
-POST_apellido := "Elorza"
-POST_edad := "45"
-Method := "POST"
+
 fmt.Println("<!DOCTYPE html>")
 fmt.Println("<html lang=\"en\">")
 fmt.Println("<head>")
 fmt.Println("<meta charset=\"UTF-8\">")
 fmt.Println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">")
 fmt.Println("<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">")
-fmt.Println("<title>Your new user already create</title>")
+fmt.Println("<link rel=\"stylesheet\" type=\"text/css\" href=\"/Assets/CSS/design.css\">")
+fmt.Println("<script src=\"/Assets/JS/main.js\"></script>")
+fmt.Println("<title>Mi Pagina web</title>")
 fmt.Println("</head>")
 fmt.Println("<body>")
-if Method == "POST"{
-table := GetDBTable("users")
-table.Insert([]string{POST_nombre,POST_apellido,POST_edad})
-fmt.Println(" <h1>"+POST_nombre+" "+POST_apellido+" de "+POST_edad+" años se ha insertado correctamente</h1>")
-}else{
-fmt.Println("<h1>No se han ofrecido parametros</h1>")
-}
+fmt.Println("<div class=\"main\">")
+fmt.Println("Holaaaaaa!")
+fmt.Println("<h1 class=\"title\">Escribe un nombre para saludar:</h1>")
+fmt.Println("<form action=\"/greet\" method=\"post\" class=\"topper\">")
+fmt.Println("<input type=\"text\" name=\"nombre\" id=\"nombre\">")
+fmt.Println("<input type=\"submit\" value=\"Aceptar\">")
+fmt.Println("</form>")
+fmt.Println("</br>")
+fmt.Println("<a href=\"/newuser\">Registrar nuevo usuario</a>")
+fmt.Println("</br>")
+fmt.Println("<img src=/Assets/IMG/welcome.png></img>")
+fmt.Println("</div>")
 fmt.Println("</body>")
 fmt.Println("</html>")
 }

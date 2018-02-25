@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"os/exec"
@@ -14,6 +15,40 @@ import (
 
 func Read(page string, props Config, a *http.Request, name string) string {
 	f, _ := os.Create("inruntime.go")
+	if props.AllowPHP {
+		if _, err := os.Stat(props.PHPPath); os.IsNotExist(err) {
+			fmt.Println("No se encontro el compilador en: " + props.PHPPath)
+			return "El compilador de php no existe"
+		}
+		l, _ := os.Create("inruntime.php")
+		b, _ := ioutil.ReadFile(page)
+		l.WriteString(string(b))
+		l.Close()
+		p, e := exec.LookPath(props.PHPPath)
+		if e == nil {
+			var sherr bytes.Buffer
+			cmd := exec.Command(p, props.Path+"\\"+"inruntime.php")
+			cmd.Stderr = &sherr
+			out, err := cmd.Output()
+			if props.Saveruntimes {
+				if _, err := os.Stat(props.Path + "\\" + "runtimes"); os.IsNotExist(err) {
+					os.Mkdir(props.Path+"\\"+"runtimes", os.ModePerm)
+				}
+				t := time.Now()
+				name := strconv.Itoa(t.Hour()) + "_" + strconv.Itoa(t.Minute()) + "_" + strconv.Itoa(t.Second()) + "_" + strconv.Itoa(t.Nanosecond())
+				name += "-" + strconv.Itoa(t.Day()) + "_" + t.Month().String() + "_" + strconv.Itoa(t.Year())
+				os.Rename(props.Path+"\\"+"inruntime.php", props.Path+"\\"+"runtimes\\"+name+".php")
+			}
+			if err != nil {
+				fmt.Println("Ha habído un error llamando al compilador de php: " + err.Error() + " " + sherr.String())
+				return "Error cargando la página: " + sherr.String()
+			}
+			ioutil.WriteFile(props.Path+"\\"+"inruntime.php", out, os.ModePerm)
+			page = props.Path + "\\" + "inruntime.php"
+		} else {
+			return "Error buscando el compilador de php"
+		}
+	}
 	f.WriteString(SumCode(page, props, a, name))
 	f.Close()
 	p, e := exec.LookPath("go")
@@ -29,17 +64,15 @@ func Read(page string, props Config, a *http.Request, name string) string {
 			t := time.Now()
 			name := strconv.Itoa(t.Hour()) + "_" + strconv.Itoa(t.Minute()) + "_" + strconv.Itoa(t.Second()) + "_" + strconv.Itoa(t.Nanosecond())
 			name += "-" + strconv.Itoa(t.Day()) + "_" + t.Month().String() + "_" + strconv.Itoa(t.Year())
-			os.Rename(props.Path+"\\"+"inruntime.go", props.Path+"\\"+"runtimes\\"+name)
+			os.Rename(props.Path+"\\"+"inruntime.go", props.Path+"\\"+"runtimes\\"+name+".go")
 		}
 		if err != nil {
 			fmt.Println("Ha habído un error cargando la página: " + err.Error() + " " + sherr.String())
 			return "Error cargando la página: " + sherr.String()
-		} else {
-			return string(out)
 		}
-	} else {
-		return "Error buscando el compilador"
+		return (string(out))
 	}
+	return "Error buscando el compilador de golang"
 }
 
 func SumCode(page string, props Config, a *http.Request, name string) string {
@@ -67,6 +100,8 @@ func SumCode(page string, props Config, a *http.Request, name string) string {
 						final += "fmt.Println(\"<script src=\\\"/Assets/JS/" + parts[1] + "\\\"></script>\")\n"
 					case "css":
 						final += "fmt.Println(\"<link rel=\\\"stylesheet\\\" type=\\\"text/css\\\" href=\\\"/Assets/CSS/" + parts[1] + "\\\">\")\n"
+					case "img":
+						final += "fmt.Println(\"<img src=/Assets/IMG/" + parts[1] + "></img>\")\n"
 					default:
 						final += "panic(\"Tipo de recurso desconocido\")\n"
 					}
